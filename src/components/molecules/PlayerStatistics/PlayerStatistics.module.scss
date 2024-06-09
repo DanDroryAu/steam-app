@@ -1,0 +1,36 @@
+.playerStatistics {
+  padding-bottom: 26px;
+  max-width: 600px;
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+
+  h2 {
+    font-size: 2rem;
+  }
+
+  p {
+    font-weight: normal;
+    color: #ccc;
+    span {
+      color: #fff;
+      font-weight: bold;
+    }
+  }
+  img {
+    width: 100px;
+    height: 100px;
+  }
+}
+
+.profileContainer {
+  display: flex;
+  gap: 16px;
+}
+
+.statisticsContainer {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+  justify-content: flex-end;
+}
