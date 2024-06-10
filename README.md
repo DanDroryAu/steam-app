@@ -90,6 +90,8 @@ As an extra feature I decided to fetch the userData from steam and serve it back
 ### Improvements
 I've only added a few tests and would like to add more but I believe the tests that are there show my testing capability and in order to conserve some time I've decided against writing the full test suite. I would also improve some of the error handling in the application and the way that the app is rendered. There are some optimisations that can be made in the time to live.
 
+I would also have liked to add more ESLINT rules. For sake of speed I've decided against setting up my "perfect" eslint config. I would add prettier as well as look at some other rules that I would want to enable.
+
 I would also like to add a tool like `storybook` to make it easier to develop components. It also adds out of the box visual regression testing (free tier with upgrades available) and allows me to share the components that we have with the team.
 
 And lastly the current deployment is quite simple with heroku. I would much rather improve the github protocols and automation to handle the deploys from there. This gives me greater control when setting up deployments and not letting heroku handle it. (AWS > Heroku).
