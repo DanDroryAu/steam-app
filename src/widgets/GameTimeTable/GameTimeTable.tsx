@@ -43,6 +43,7 @@ export type Props = {
 
 export const GameTimeTable = ({ startId = '' }: Props) => {
   const [steamId, setSteamId] = React.useState(startId);
+
   const { loading, data } = useQuery(getAllGamesBySteamId, {
     variables: { args: { steamId } },
   });

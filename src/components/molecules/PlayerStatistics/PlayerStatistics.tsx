@@ -1,6 +1,5 @@
 import classes from './PlayerStatistics.module.scss';
 
-
 export type Props = {
   gamesOwned: number;
   totalTimePlayed: string;

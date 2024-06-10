@@ -10,8 +10,6 @@ const init = async () => {
   await initRouter();
 };
 
-console.log('client', client);
-
 init().then(() => {
   ReactDOM.createRoot(document.getElementById('root')!).render(
     <React.StrictMode>
