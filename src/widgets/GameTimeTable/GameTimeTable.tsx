@@ -89,15 +89,19 @@ export const GameTimeTable = ({ startId = '' }: Props) => {
     { format: ['days', 'hours', 'minutes'] }
   ) || '0 minutes';
 
-  const percentageOfLifeSpentGaming = `${Math.floor(data?.getAllGamesBySteamId.totalPlaytime / (((getTime(new Date()) - steamUserDetails?.getSteamUserDetails.timeCreated * 1000)) / 60000) * 1000) / 10}%`;
+  const percentageOfLifeSpentGaming = (data?.getAllGamesBySteamId.totalPlaytime && steamUserDetails?.getSteamUserDetails.timeCreated)
+    ? `${Math.floor(data?.getAllGamesBySteamId.totalPlaytime / (((getTime(new Date()) - steamUserDetails?.getSteamUserDetails.timeCreated * 1000)) / 60000) * 1000) / 10}%`
+    : 'N/A';
+
+  const activeSince = steamUserDetails?.getSteamUserDetails.timeCreated ? format(fromUnixTime(steamUserDetails?.getSteamUserDetails.timeCreated), 'dd/MM/yyyy') : 'N/A';
 
   return (
     <>
       <SearchBar label="Steam Id" value={steamId} onInput={handleInputChange} />
-      {data && <PlayerStatistics
-        avatar={steamUserDetails.getSteamUserDetails.avatarUrl}
-        playerName={steamUserDetails.getSteamUserDetails.personaName}
-        activeSince={format(fromUnixTime(steamUserDetails.getSteamUserDetails.timeCreated), 'dd/MM/yyyy')}
+      {data && steamUserDetails && <PlayerStatistics
+        avatar={steamUserDetails?.getSteamUserDetails.avatarUrl}
+        playerName={steamUserDetails?.getSteamUserDetails.personaName}
+        activeSince={activeSince}
         gamesOwned={data?.getAllGamesBySteamId.gameCount || 0}
         totalTimePlayed={formatedTotalPlaytime}
         percentageOfLifeSpentGaming={percentageOfLifeSpentGaming}
